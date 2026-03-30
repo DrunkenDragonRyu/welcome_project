@@ -133,6 +133,69 @@
       font-size: 28px;
     }
 
+    .design-selector {
+      margin-top: 22px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .design-selector label {
+      font-weight: 700;
+      color: #1f3d30;
+    }
+
+    .design-selector select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #bcc8bf;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+
+    .design-preview {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border: 1px solid #d7ddd7;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .design-preview h3 {
+      margin: 0;
+      font-size: 22px;
+      color: #1f3d30;
+    }
+
+    .design-preview p {
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .design-meta {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .design-meta-item {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #edf3ee;
+    }
+
+    .design-meta-label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #5a665d;
+    }
+
     .steps-list {
       margin: 22px 0 0;
       padding-left: 24px;
@@ -182,6 +245,24 @@
 
     .coding-block code {
       font-family: Consolas, "Courier New", monospace;
+    }
+
+    .setup-panel {
+      padding: 18px;
+      border: 1px solid #d7ddd7;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .setup-panel h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      color: #1f3d30;
+    }
+
+    .setup-panel p {
+      margin: 0;
+      line-height: 1.7;
     }
 
     .support-form {
@@ -425,11 +506,24 @@
           </tr>
           <tr>
             <td>
-              バッテリー
+              <label for="battery-select">バッテリー</label><br>
+              <select id="battery-select" name="battery-select">
+                <option value="lithium" data-price="Amazonで確認" data-url="https://www.amazon.co.jp/s?k=%E3%83%AA%E3%83%81%E3%82%A6%E3%83%A0%E3%82%A4%E3%82%AA%E3%83%B3+%E3%83%90%E3%83%83%E3%83%86%E3%83%AA%E3%83%BC">リチウムイオンバッテリー</option>
+                <option value="9v" data-price="Amazonで確認" data-url="https://www.amazon.co.jp/s?k=9v+%E4%B9%BE%E9%9B%BB%E6%B1%A0">9V乾電池</option>
+              </select>
               <p class="part-role">各パーツへ電力を供給する電源です。</p>
+              <p class="microcontroller-note" id="battery-note">カメラを使う場合や高出力が必要な場合はリチウムイオンバッテリーを選んだ方がよいですが、高くなりやすいです。</p>
             </td>
-            <td>Amazonで確認</td>
-            <td><a href="https://www.amazon.co.jp/mah%E3%80%81SM%E3%83%97%E3%83%A9%E3%82%B0%E3%83%AA%E3%83%81%E3%82%A6%E3%83%A0%E9%9B%BB%E6%B1%A0%E4%BB%98%E3%81%8D%E3%80%811%E3%81%BE%E3%81%9F%E3%81%AF3%E5%85%85%E9%9B%BB%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E4%BB%98%E3%81%8D%E3%80%81WPL-RC%E3%83%88%E3%83%A9%E3%83%83%E3%82%AF%E9%83%A8%E5%93%81Anstoy-1085-1086-1087%E3%82%B2%E3%83%AB%E3%83%9C%E3%83%BC%E3%83%AB%E3%83%96%E3%83%A9%E3%82%B9%E3%83%88%E6%A9%9F%E3%83%AA%E3%83%81%E3%82%A6%E3%83%A0%E9%9B%BB%E6%B1%A0%E3%81%AB%E9%81%A9%E7%94%A8/dp/B0BMWY3JNQ/ref=pd_sbs_d_sccl_1_6/357-3891162-9885607?pd_rd_w=BPUjm&content-id=amzn1.sym.d9975236-2c6f-40f8-8a79-8a86a96a4ad2&pf_rd_p=d9975236-2c6f-40f8-8a79-8a86a96a4ad2&pf_rd_r=AE9H8X5SZTYPAJTP7W2C&pd_rd_wg=DxDlx&pd_rd_r=9b9209b5-fa27-4bd0-9273-3115cc8a4798&pd_rd_i=B0BMWY3JNQ&psc=1" target="_blank">商品ページを見る</a></td>
+            <td id="battery-price">Amazonで確認</td>
+            <td><a id="battery-link" href="https://www.amazon.co.jp/s?k=%E3%83%AA%E3%83%81%E3%82%A6%E3%83%A0%E3%82%A4%E3%82%AA%E3%83%B3+%E3%83%90%E3%83%83%E3%83%86%E3%83%AA%E3%83%BC" target="_blank">商品ページを見る</a></td>
+          </tr>
+          <tr>
+            <td>
+              XT30コネクター オス 基板取付用 XT30PW-M
+              <p class="part-role">バッテリーと基板の電源ラインを着脱しやすくする電源コネクターです。</p>
+            </td>
+            <td>¥70</td>
+            <td><a href="https://akizukidenshi.com/catalog/g/g117949/" target="_blank">商品ページを見る</a></td>
           </tr>
           <tr>
             <td>
@@ -446,6 +540,22 @@
             </td>
             <td>¥330 × 2</td>
             <td><a href="https://akizukidenshi.com/catalog/g/g114801/" target="_blank">商品ページを見る</a></td>
+          </tr>
+          <tr>
+            <td>
+              XHコネクター ベース付ポスト サイド型 2P S2B-XH-A(LF)(SN)
+              <p class="part-role">モーターとの接続に使う基板用コネクターです。左右のモーター用に2個必要です。</p>
+            </td>
+            <td>¥15 × 2</td>
+            <td><a href="https://akizukidenshi.com/catalog/g/g112262/" target="_blank">商品ページを見る</a></td>
+          </tr>
+          <tr>
+            <td>
+              積層セラミックコンデンサー 1μF50V X7R 5mm <span class="optional-badge">オプション</span>
+              <p class="part-role">モーターのアウトプットに追加できる任意部品です。回転時に出るノイズを抑え、誤動作や電源ラインへの影響を減らしやすくします。</p>
+            </td>
+            <td>¥20</td>
+            <td><a href="https://akizukidenshi.com/catalog/g/g108150/" target="_blank">商品ページを見る</a></td>
           </tr>
           <tr>
             <td>
@@ -490,8 +600,83 @@
             <td>Amazonで確認</td>
             <td><a href="https://www.amazon.co.jp/YUWENW-OLED%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%A4-0-96%E3%82%A4%E3%83%B3%E3%83%81-OLED%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-Arduino%E3%81%AB%E5%AF%BE%E5%BF%9C/dp/B0DJ7B8P48/ref=sr_1_1_sspa?dib=eyJ2IjoiMSJ9.taiBTPMkoK_7pzI4tSJyJ8wP3B-z_flQb8XOSY4jcDx0W_85qolIxUkjR6ZaLgCWoY1ZtcwBGP5UZ7Wdaq-3q5vS3CwUUdxnrW7B9j881VIJqU1L1tUR4QSxICYDFjKxBIX8of5f__pHCMMGV48VyN9Z2V9UdHicn9i1_iCy6MEeBd2ZXyBxEyZ2yTHevjnNLTmugUQvxdAIlHkrwGwIQte3w6rxtJ7HQzzRlgYu56RuluP07VHs-2LS6HvJKGFXrKsURUOtiqFXTzTiB-wCEGQI2f89uHMIBqiGcx_o9TE.jibN0opIddprUIzjujLC0W5rNTNKnsfkjYgTXEVtScI&dib_tag=se&keywords=OLED&qid=1774194203&sr=8-1-spons&ufe=app_do%3Aamzn1.fos.d8e7ee72-073f-4b97-8ec0-59c18d6dfebe&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1" target="_blank">商品ページを見る</a></td>
           </tr>
+          <tr>
+            <td>
+              コネクター用ハウジング 4P
+              <p class="part-role">OLEDとの接続に使う4ピンのハウジングです。</p>
+            </td>
+            <td>¥10</td>
+            <td><a href="https://akizukidenshi.com/catalog/g/g112153/" target="_blank">商品ページを見る</a></td>
+          </tr>
+          <tr>
+            <td>
+              基板用スライドスイッチ SS-12D00-G5
+              <p class="part-role">メイン電源のオンオフ切り替えに使う基板取付用の小型スイッチです。</p>
+            </td>
+            <td>¥20</td>
+            <td><a href="https://akizukidenshi.com/catalog/g/g108790/" target="_blank">商品ページを見る</a></td>
+          </tr>
+          <tr>
+            <td>
+              汎用整流用ダイオード 1000V1A 1N4007
+              <p class="part-role">電源基板の整流用に使うダイオードです。逆接続対策や電流の逆流防止にも使えます。</p>
+            </td>
+            <td>¥100 / 20本</td>
+            <td><a href="https://akizukidenshi.com/catalog/g/g100934/" target="_blank">商品ページを見る</a></td>
+          </tr>
+          <tr>
+            <td>
+              3mm砲弾型黄緑色LED 570nm 100mcd 70° OSG8HA3Z74A
+              <p class="part-role">電源のON/OFF確認用に使うインジケーターLEDです。</p>
+            </td>
+            <td>¥10</td>
+            <td><a href="https://akizukidenshi.com/catalog/g/g111637/" target="_blank">商品ページを見る</a></td>
+          </tr>
+          <tr>
+            <td>
+              抵抗 約200Ω
+              <p class="part-role">電源確認用LEDの電圧降下と電流制限に使う抵抗です。</p>
+            </td>
+            <td>別途準備</td>
+            <td>リンクなし</td>
+          </tr>
         </tbody>
       </table>
+    </section>
+
+    <section class="content-card" id="design">
+      <h2>設計</h2>
+      <p>材料選びに加えて、どんなローバーにしたいかを設計段階で選べるようにしてあります。</p>
+
+      <div class="design-selector">
+        <div class="form-row">
+          <label for="design-select">設計プラン</label>
+          <select id="design-select" name="design-select">
+            <option value="balanced">バランス重視</option>
+            <option value="speed">スピード重視</option>
+            <option value="camera">観察・カメラ重視</option>
+          </select>
+        </div>
+
+        <div class="design-preview">
+          <h3 id="design-title">バランス重視</h3>
+          <p id="design-description">初めて作るときに扱いやすい標準設計です。走行・制御・拡張のしやすさを均等に確保します。</p>
+          <div class="design-meta">
+            <div class="design-meta-item">
+              <span class="design-meta-label">おすすめタイヤ</span>
+              <span id="design-tire">ストリートタイプ</span>
+            </div>
+            <div class="design-meta-item">
+              <span class="design-meta-label">重視ポイント</span>
+              <span id="design-focus">安定した走行と調整のしやすさ</span>
+            </div>
+            <div class="design-meta-item">
+              <span class="design-meta-label">メモ</span>
+              <span id="design-note">車体中央にバッテリーを置くとバランスが取りやすいです。</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="content-card" id="assembly">
@@ -514,17 +699,56 @@
     </section>
 
     <section class="content-card" id="coding">
+      <h2>開発環境セットアップ</h2>
+      <p>開発環境は3パターンから選べるようにしてあり、選択した環境の説明枠だけが表示されます。</p>
+
+      <div class="design-selector">
+        <div class="form-row">
+          <label for="environment-select">開発環境</label>
+          <select id="environment-select" name="environment-select">
+            <option value="platformio">PlatformIO（推奨）</option>
+            <option value="arduino">Arduino IDE</option>
+            <option value="micropython">MicroPython</option>
+          </select>
+        </div>
+
+        <div class="setup-panel">
+          <h3 id="environment-title">PlatformIO（推奨）</h3>
+          <p id="environment-description">セットアップ説明文は未記入です。</p>
+        </div>
+      </div>
+
       <h2>コーディング</h2>
       <p>説明文とコードを交互に並べられるようにしてあります。内容はあとから自由に編集してください。</p>
 
       <div class="coding-block">
-        <h3>コード1の説明</h3>
-        <p>ここに1つ目のコードについての説明を書いてください。</p>
-        <pre><code>// ここに1つ目のコードを書いてください
+        <h3>IMUテストコード</h3>
+        <p>MPU6050 を I2C で初期化し、加速度と角速度の6軸データをシリアルモニタへ出力する確認用コードです。</p>
+        <pre><code>#include &lt;Arduino.h&gt;
+#include &lt;Wire.h&gt;
+#include &lt;MPU6050.h&gt;
+
+MPU6050 accelgyro;
+
+int16_t ax, ay, az; // 加速度
+int16_t gx, gy, gz; // 角速度
+
 void setup() {
+  Wire.begin();
+  Serial.begin(115200);
+  accelgyro.initialize(); // I2Cデバイスの初期化
+  delay(300);
 }
 
 void loop() {
+  accelgyro.getMotion6(&amp;ax, &amp;ay, &amp;az, &amp;gx, &amp;gy, &amp;gz);
+  Serial.print(ax); Serial.print(", ");
+  Serial.print(ay); Serial.print(", ");
+  Serial.print(az); Serial.print(" : ");
+  Serial.print(gx); Serial.print(", ");
+  Serial.print(gy); Serial.print(", ");
+  Serial.print(gz); Serial.println("");
+  delay(100);
 }</code></pre>
       </div>
 
@@ -577,10 +801,23 @@ void setup() {
     const microcontrollerSelect = document.getElementById("microcontroller");
     const microcontrollerPrice = document.getElementById("microcontroller-price");
     const microcontrollerLink = document.getElementById("microcontroller-link");
+    const batterySelect = document.getElementById("battery-select");
+    const batteryPrice = document.getElementById("battery-price");
+    const batteryLink = document.getElementById("battery-link");
+    const batteryNote = document.getElementById("battery-note");
     const tireSelect = document.getElementById("tire-select");
     const tirePrice = document.getElementById("tire-price");
     const tirePreview = document.getElementById("tire-preview");
     const tireCaption = document.getElementById("tire-caption");
+    const designSelect = document.getElementById("design-select");
+    const designTitle = document.getElementById("design-title");
+    const designDescription = document.getElementById("design-description");
+    const designTire = document.getElementById("design-tire");
+    const designFocus = document.getElementById("design-focus");
+    const designNote = document.getElementById("design-note");
+    const environmentSelect = document.getElementById("environment-select");
+    const environmentTitle = document.getElementById("environment-title");
+    const environmentDescription = document.getElementById("environment-description");
     const registrationNumberInput = document.getElementById("registration-number");
     const supportForm = document.getElementById("support-form");
     const supportSubmit = document.getElementById("support-submit");
@@ -592,11 +829,62 @@ void setup() {
       slick: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 160'><rect width='240' height='160' rx='20' fill='%23f4f7f4'/><ellipse cx='120' cy='80' rx='72' ry='72' fill='%231f2326'/><ellipse cx='120' cy='80' rx='48' ry='48' fill='%23687175'/><ellipse cx='120' cy='80' rx='22' ry='22' fill='%23dbe1de'/><g stroke='%239aa3a7' stroke-width='4'><line x1='120' y1='34' x2='120' y2='126'/><line x1='74' y1='80' x2='166' y2='80'/><line x1='89' y1='49' x2='151' y2='111'/><line x1='151' y1='49' x2='89' y2='111'/></g><circle cx='120' cy='80' r='65' fill='none' stroke='%23343b3f' stroke-width='4'/></svg>"
     };
 
+    const designOptions = {
+      balanced: {
+        title: "バランス重視",
+        description: "初めて作るときに扱いやすい標準設計です。走行・制御・拡張のしやすさを均等に確保します。",
+        tire: "ストリートタイプ",
+        focus: "安定した走行と調整のしやすさ",
+        note: "車体中央にバッテリーを置くとバランスが取りやすいです。"
+      },
+      speed: {
+        title: "スピード重視",
+        description: "軽量な構成にして、平らな路面で気持ちよく走らせるための設計です。直進性と加速感を優先します。",
+        tire: "スリックタイヤ",
+        focus: "軽量化と転がり抵抗の低減",
+        note: "配線を短くまとめ、不要なオプション部品を減らすと効果が出やすいです。"
+      },
+      camera: {
+        title: "観察・カメラ重視",
+        description: "カメラやセンサを載せて周囲を観察しやすくする設計です。やや重量が増えるため安定性も意識します。",
+        tire: "ブロックタイヤ",
+        focus: "積載性と段差への強さ",
+        note: "XIAO ESP32S3 Sense と組み合わせると映像確認をしやすくなります。"
+      }
+    };
+
+    const environmentOptions = {
+      platformio: {
+        title: "PlatformIO（推奨）",
+        description: "セットアップ説明文は未記入です。"
+      },
+      arduino: {
+        title: "Arduino IDE",
+        description: "セットアップ説明文は未記入です。"
+      },
+      micropython: {
+        title: "MicroPython",
+        description: "セットアップ説明文は未記入です。"
+      }
+    };
+
+    const batteryOptions = {
+      lithium: "カメラを使う場合や高出力が必要な場合はリチウムイオンバッテリーを選んだ方がよいですが、高くなりやすいです。",
+      "9v": "9V乾電池は出力が小さいです。"
+    };
+
     microcontrollerSelect.addEventListener("change", () => {
       const selectedOption = microcontrollerSelect.options[microcontrollerSelect.selectedIndex];
       microcontrollerPrice.textContent = selectedOption.dataset.price;
       microcontrollerLink.href = selectedOption.dataset.url;
     });
+
+    const updateBatteryPreview = () => {
+      const selectedOption = batterySelect.options[batterySelect.selectedIndex];
+      batteryPrice.textContent = selectedOption.dataset.price;
+      batteryLink.href = selectedOption.dataset.url;
+      batteryNote.textContent = batteryOptions[selectedOption.value];
+    };
 
     const updateTirePreview = () => {
       const selectedOption = tireSelect.options[tireSelect.selectedIndex];
@@ -606,8 +894,29 @@ void setup() {
       tireCaption.textContent = selectedOption.text;
     };
 
+    const updateDesignPreview = () => {
+      const selectedDesign = designOptions[designSelect.value];
+      designTitle.textContent = selectedDesign.title;
+      designDescription.textContent = selectedDesign.description;
+      designTire.textContent = selectedDesign.tire;
+      designFocus.textContent = selectedDesign.focus;
+      designNote.textContent = selectedDesign.note;
+    };
+
+    const updateEnvironmentPreview = () => {
+      const selectedEnvironment = environmentOptions[environmentSelect.value];
+      environmentTitle.textContent = selectedEnvironment.title;
+      environmentDescription.textContent = selectedEnvironment.description;
+    };
+
     updateTirePreview();
     tireSelect.addEventListener("change", updateTirePreview);
+    updateBatteryPreview();
+    batterySelect.addEventListener("change", updateBatteryPreview);
+    updateDesignPreview();
+    designSelect.addEventListener("change", updateDesignPreview);
+    updateEnvironmentPreview();
+    environmentSelect.addEventListener("change", updateEnvironmentPreview);
 
     const updateSupportState = () => {
       const hasRegistrationNumber = registrationNumberInput.value.trim().length > 0;
